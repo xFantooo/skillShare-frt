@@ -1,0 +1,31 @@
+{
+  "name": "skillshare-frt",
+  "version": "1.0.0",
+  "description": "Siteweb d'echange de competence",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xFantooo/skillShare-frt.git"
+  },
+  "author": "xFantooo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xFantooo/skillShare-frt/issues"
+  },
+  "homepage": "https://github.com/xFantooo/skillShare-frt#readme",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "helmet": "^8.1.0",
+    "nodemailer": "^7.0.3"
+  },
+  "devDependencies": {
+    "browser-sync": "^3.0.4",
+    "concurrently": "^9.1.2",
+    "nodemon": "^3.1.10",
+    "sass": "^1.89.1"
+  }
+}
