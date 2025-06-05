@@ -1,58 +1,75 @@
 .navbar {
-  background: #333;
+  border: 6px solid #ffffff;
+  border-radius: 50px;
+  margin: auto;
+  box-shadow: #b9b9b9 -1px 13px 20px 7px;
+  width: 70%;
+  background-color: #000;
   color: white;
-  padding: 1rem;
+  padding: 1rem 2rem;
+  position: relative;
 
   .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: 1200px;
+    margin: auto;
   }
 
   .logo {
     font-weight: bold;
-    color: white;
+    font-size: 1.5rem;
     text-decoration: none;
+    color: white;
   }
 
   .nav-links {
-    list-style: none;
+    margin: 0 20px;
+
     display: flex;
-    gap: 1rem;
+    gap: 5.5rem;
 
     a {
       color: white;
       text-decoration: none;
+      transition: color 0.3s;
+
+      &:hover {
+        color: #1abc9c;
+      }
     }
   }
 
   .toggle {
     display: none;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     background: none;
     border: none;
     color: white;
     cursor: pointer;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 768px) {
     .nav-links {
       display: none;
       flex-direction: column;
-      background: #444;
+      background: #000000;
       position: absolute;
-      right: 0;
-      top: 60px;
+      top: 70px;
+      right: 20px;
       width: 200px;
       padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+      &.show {
+        display: flex;
+      }
     }
 
     .toggle {
       display: block;
-    }
-
-    .toggle.active + .nav-links {
-      display: flex;
     }
   }
 }
