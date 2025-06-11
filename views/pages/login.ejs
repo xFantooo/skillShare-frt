@@ -1,0 +1,20 @@
+<head>
+  <link
+    rel="stylesheet"
+    href="<%= process.env.SITE_URL %>/assets/styles/formulaire/formulaire.css"
+  />
+</head>
+
+<form method="POST" action="" enctype="multipart/form-data">
+  <div class="form-group">
+    <label for="username">Nom d'utilisateur</label>
+    <input type="text" class="form-control" id="username" name="username" />
+  </div>
+
+  <div class="form-group">
+    <label for="password">Mot de passe</label>
+    <input type="password" class="form-control" id="password" name="password" />
+  </div>
+
+  <button type="submit" class="btn btn-primary mt-3">Connexion</button>
+</form>

@@ -1,4 +1,66 @@
+<head>
+  <link
+    rel="stylesheet"
+    href="<%= process.env.SITE_URL %>/assets/styles/home/home.css"
+  />
+</head>
+
 <section class="home">
+  <div class="glass-effect"></div>
+  <div class="skill-particles" id="particles"></div>
+
   <h1>Welcome to SkillShare</h1>
-  <p>The online platform to share your skills with the world.</p>
+  <p>
+    The next-generation platform where talents meet opportunity. Trade skills,
+    unlock potential, and build meaningful connections in our vibrant community.
+  </p>
+
+  <div class="cta-section">
+    <a href="#" class="cta-button">Start Trading Skills</a>
+    <a href="#" class="cta-button">Discover Talents</a>
+  </div>
+
+  <div class="scroll-indicator">
+    <div style="font-size: 1.5rem">↓</div>
+  </div>
 </section>
+
+<script>
+  // Create floating particles
+  function createParticles() {
+    const particlesContainer = document.getElementById("particles");
+    const particleCount = 20;
+
+    for (let i = 0; i < particleCount; i++) {
+      const particle = document.createElement("div");
+      particle.className = "particle";
+      particle.style.left = Math.random() * 100 + "%";
+      particle.style.animationDelay = Math.random() * 8 + "s";
+      particle.style.animationDuration = Math.random() * 3 + 5 + "s";
+      particlesContainer.appendChild(particle);
+    }
+  }
+
+  // Cursor interaction effect
+  document.addEventListener("mousemove", (e) => {
+    const cursor = document.querySelector(".home");
+    const x = e.clientX / window.innerWidth;
+    const y = e.clientY / window.innerHeight;
+
+    cursor.style.setProperty("--mouse-x", x);
+    cursor.style.setProperty("--mouse-y", y);
+  });
+
+  // Initialize particles when page loads
+  window.addEventListener("load", () => {
+    createParticles();
+  });
+
+  // Add subtle parallax effect
+  window.addEventListener("scroll", () => {
+    const scrolled = window.pageYOffset;
+    const parallax = document.querySelector(".home");
+    const speed = scrolled * 0.5;
+    parallax.style.transform = `translateY(${speed}px)`;
+  });
+</script>
