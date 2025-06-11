@@ -4,7 +4,7 @@ import path from "path";
 import dotenv from "dotenv";
 import indexRoutes from "./routes/index.js";
 dotenv.config();
-const PHP_API_URL = process.env.PHP_API_URL || "http://localhost:8000";
+const API_URL = process.env.API_URL || "http://localhost:8000";
 const app = express();
 const PORT = process.env.PORT || 3000;
 app.use(
@@ -18,8 +18,8 @@ app.use(
           "'unsafe-eval'",
           "localhost:*",
         ],
-        connectSrc: ["'self'", "ws://localhost:*", PHP_API_URL],
-        imgSrc: ["'self'", "data:", "blob:", PHP_API_URL],
+        connectSrc: ["'self'", "ws://localhost:*", API_URL],
+        imgSrc: ["'self'", "data:", "blob:", API_URL],
         styleSrc: ["'self'", "'unsafe-inline'"],
         formAction: ["'self'"],
         baseUri: ["'self'"],

@@ -1,0 +1,394 @@
+//SAUVEGARDE DES STYLES POUR LE FORMULAIRE
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
+  background: radial-gradient(circle at 20% 30%, #2b2b2c, #1f1f1f 70%);
+  overflow: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Plasma-style animated gradient */
+body::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 0deg,
+    #000000,
+    #424141,
+    #c7c7c7,
+    #000000,
+    #ffffff
+  );
+  animation: rotatePlasma 20s linear infinite;
+  z-index: -2;
+  opacity: 0.3;
+  filter: blur(20px);
+}
+
+/* SVG animated noise overlay */
+body::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='400' height='400' viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='strong'%3E%3CfeTurbulence baseFrequency='0.9' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23strong)' opacity='0.15'/%3E%3C/svg%3E");
+  z-index: -1;
+  animation: noiseShift 3s steps(10) infinite;
+  opacity: 0.3;
+  mix-blend-mode: overlay;
+}
+
+/* Keyframes */
+@keyframes rotatePlasma {
+  0% {
+    transform: rotate(0deg) scale(1.2);
+  }
+  100% {
+    transform: rotate(360deg) scale(1.2);
+  }
+}
+
+@keyframes noiseShift {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(2px, -2px);
+  }
+}
+
+@keyframes myAnime {
+  0% {
+    transform: scaleX(0);
+    transform-origin: 100% 100%;
+  }
+
+  100% {
+    transform: scaleX(1);
+    transform-origin: 100% 100%;
+  }
+}
+
+form {
+  animation: myAnime 2s ease 0s 1 normal both;
+  max-width: 420px;
+  margin: 60px auto;
+  padding: 30px 40px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.3s ease;
+}
+
+form:hover {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #555;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+  outline: none;
+}
+
+input.error-input:focus {
+  border-color: #dc3545; /* Rouge */
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.15); /* Rouge transparent */
+  outline: none;
+}
+
+/* Optionnel : bordure rouge même sans focus */
+input.error-input {
+  border-color: #dc3545;
+}
+
+input[type="file"] {
+  padding: 8px;
+}
+
+.error {
+  color: red;
+  font-size: small;
+  font-style: italic;
+}
+
+button[type="submit"] {
+  display: inline-block;
+  width: 100%;
+  padding: 12px 0;
+  background: #252626;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background: #787878;
+}
+
+@media (max-width: 480px) {
+  form {
+    padding: 25px 20px;
+  }
+}
+
+// input[type="file"] {
+//   padding: 12px 24px;
+//   border: 1px solid #dee2e6;
+//   background: white;
+//   color: #6c757d;
+//   border-radius: 50px;
+//   cursor: pointer;
+//   font-size: 14px;
+//   transition: all 0.3s ease;
+//   position: relative;
+// }
+
+// input[type="file"]:hover {
+//   border-color: #007bff;
+//   color: #007bff;
+//   box-shadow: 0 2px 8px rgba(0, 123, 255, 0.1);
+// }
+
+// input[type="file"]:focus {
+//   outline: none;
+//   border-color: #007bff;
+//   box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+// }
+
+/* Hide the default file input */
+.form-control[type="file"] {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  z-index: 2;
+}
+
+/* Custom file input container */
+.file-input-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 160px;
+  border: 2px dashed #cbd5e1;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.file-input-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #121213, #424142);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+}
+
+.file-input-container:hover::before {
+  opacity: 0.05;
+}
+
+.file-input-container:hover {
+  border-color: #000000;
+  transform: translateY(-2px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.file-input-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  z-index: 1;
+  position: relative;
+}
+
+.file-input-icon {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #000000, #838282);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  transition: transform 0.3s ease;
+}
+
+.file-input-container:hover .file-input-icon {
+  transform: scale(1.1);
+}
+
+.file-input-icon svg {
+  width: 24px;
+  height: 24px;
+  color: white;
+}
+
+.file-input-text {
+  margin-bottom: 4px;
+}
+
+.file-input-text strong {
+  color: #1e293b;
+  font-weight: 600;
+}
+
+.file-input-hint {
+  color: #64748b;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+/* Drag and drop states */
+.file-input-container.drag-over {
+  border-color: #000000;
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  transform: scale(1.02);
+}
+
+.file-input-container.drag-over::before {
+  opacity: 0.1;
+}
+
+/* File selected state */
+.file-input-container.has-file {
+  border-color: #10b981;
+  background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+}
+
+.file-input-container.has-file .file-input-icon {
+  background: linear-gradient(135deg, #10b981, #059669);
+}
+
+/* Error state */
+.file-input-container.error {
+  border-color: #ef4444;
+  background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+}
+
+.file-input-container.error .file-input-icon {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+/* Error message */
+.error {
+  display: block;
+  color: #ef4444;
+  font-size: 12px;
+  margin-top: 8px;
+  min-height: 16px;
+  font-weight: 500;
+}
+
+/* File preview */
+.file-preview {
+  display: none;
+  margin-top: 12px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.file-preview.show {
+  display: block;
+}
+
+.file-preview img {
+  max-width: 100px;
+  max-height: 100px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.file-info {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #64748b;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+  .file-input-container {
+    min-height: 140px;
+  }
+
+  .file-input-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .file-input-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Animation for file upload */
+@keyframes upload-success {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.file-input-container.upload-success {
+  animation: upload-success 0.5s ease-out;
+}

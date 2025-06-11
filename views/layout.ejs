@@ -7,6 +7,12 @@
       rel="stylesheet"
       href="<%= process.env.SITE_URL %>/assets/styles/style.css"
     />
+    <% if (title === 'Register' || 'Login') { %>
+    <link
+      rel="stylesheet"
+      href="<%= process.env.SITE_URL %>/assets/styles/formulaire/formulaire.css"
+    />
+    <% }%>
     <link rel="stylesheet" href="" />
     <title><%= title || 'shareskill' %></title>
   </head>
@@ -19,5 +25,11 @@
       type="module"
       src="<%= process.env.SITE_URL %>/assets/js/navbar.js"
     ></script>
+    <% if (title === 'Register') { %>
+    <script
+      type="module"
+      src="<%= process.env.SITE_URL %>/assets/js/register.js"
+    ></script>
+    <% }%>
   </body>
 </html>
