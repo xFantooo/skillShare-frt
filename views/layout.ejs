@@ -12,6 +12,11 @@
       rel="stylesheet"
       href="<%= process.env.SITE_URL %>/assets/styles/formulaire/formulaire.css"
     />
+    <% }%> <% if (title === 'VerifyEmail') { %>
+    <link
+      rel="stylesheet"
+      href="<%= process.env.SITE_URL %>/assets/styles/verifyEmail/verify-email.css"
+    />
     <% }%>
     <link rel="stylesheet" href="" />
     <title><%= title || 'shareskill' %></title>
@@ -29,6 +34,11 @@
     <script
       type="module"
       src="<%= process.env.SITE_URL %>/assets/js/register.js"
+    ></script>
+    <% }%> <% if (title === 'VerifyEmail') { %>
+    <script
+      type="module"
+      src="<%= process.env.SITE_URL %>/assets/js/verifyEmail.js"
     ></script>
     <% }%>
   </body>
