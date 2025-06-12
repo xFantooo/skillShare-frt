@@ -25,4 +25,7 @@ router.get("/login", (req, res) => {
 router.get("/skills", (req, res) => {
   res.render("layout", { title: "Skills", view: "pages/skills" });
 });
+router.get("/verify-email", (req, res) => {
+  res.render("layout", { title: "VerifyEmail", view: "pages/verify-email" });
+});
 export default router;

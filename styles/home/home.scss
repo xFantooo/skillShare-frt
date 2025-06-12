@@ -4,6 +4,21 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: "Mars";
+  src: url("/assets/fonts/Mars.otf") format("otf"),
+    url("/assets/fonts/Mars.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Bruno_Ace_SC";
+  src: url("/assets/fonts/Bruno_Ace_SC.woff2") format("woff2"),
+    url("/assets/fonts/Bruno_Ace_SC.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     sans-serif;
@@ -98,6 +113,7 @@ h1 {
   animation: textGradient 4s ease infinite, textFloat 3s ease-in-out infinite;
   position: relative;
   z-index: 2;
+  font-family: "Bruno_Ace_SC";
 }
 
 @keyframes textGradient {
