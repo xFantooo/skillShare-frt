@@ -4,7 +4,9 @@ import { validateRegisterForm } from "../../services/validate.js";
 document.addEventListener("DOMContentLoaded", () => {
   const registerForm = document.querySelector("#register-form");
   const API_URL = document.querySelector("#api-url").value;
-  console.log(API_URL);
+  const msg = document.querySelector("#verify-msg");
+  const msgContainer = document.querySelector(".message-container");
+  const filePreview = document.getElementById("filePreview");
 
   registerForm.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -58,6 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
             body: avatarFileData,
           },
         });
+
         jsonData.avatar = result.filename;
       } catch (error) {}
     }
@@ -71,8 +74,20 @@ document.addEventListener("DOMContentLoaded", () => {
           body: JSON.stringify(jsonData),
         },
       });
+      if (!result.success) {
+        throw new Error(result.error);
+      }
+      if (result.success) {
+        msg.textContent =
+          "Registeration successful! Please check your email to verify your account.";
+        msg.style.color = "green";
+        registerForm.reset();
+        filePreview.classList.remove("show");
+      }
     } catch (error) {
-      //TODO message d'erreur
+      msg.textContent = error.message;
+      msg.style.color = "red";
+      msgContainer.style.display = "block";
     }
   });
 });

@@ -26,6 +26,10 @@ router.get("/skills", (req, res) => {
   res.render("layout", { title: "Skills", view: "pages/skills" });
 });
 router.get("/verify-email", (req, res) => {
-  res.render("layout", { title: "VerifyEmail", view: "pages/verify-email" });
+  res.render("layout", {
+    title: "VerifyEmail",
+    view: "pages/verify-email",
+    ...globals,
+  });
 });
 export default router;

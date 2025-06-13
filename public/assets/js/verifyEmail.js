@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const API_URL = document.querySelector("#api-url").value;
   const loginLink = document.querySelector("#login-link");
-
+  console.log(API_URL);
   if (!token) {
     msg.textContent = "Token is missing in the URL.";
     msg.computedStyleMap.color = "red";
