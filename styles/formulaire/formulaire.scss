@@ -99,6 +99,14 @@ form:hover {
 .form-group {
   margin-bottom: 20px;
 }
+#verify-msg {
+  margin-bottom: 10px;
+  font-size: 1rem;
+  text-align: center;
+  border-radius: 15px;
+  background-color: white;
+  color: green;
+}
 
 label {
   display: block;
