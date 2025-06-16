@@ -19,7 +19,7 @@ router.get("/register", (req, res) => {
 });
 
 router.get("/login", (req, res) => {
-  res.render("layout", { title: "Login", view: "pages/login" });
+  res.render("layout", { title: "Login", view: "pages/login", ...globals });
 });
 
 router.get("/skills", (req, res) => {

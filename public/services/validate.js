@@ -2,7 +2,7 @@ export function validateRegisterForm(form) {
   const formData = new FormData(form);
   const errors = {};
   //   console.log(formData.get("email"));
-  if (!formData.get("username").trim())
+  if (formData.get("username") !== null && !formData.get("username").trim())
     errors.username = "Username is required.";
   // console.log(errors.username);
   const emailRegex = new RegExp(
@@ -24,27 +24,29 @@ export function validateRegisterForm(form) {
     console.log(errors.password);
   }
 
-  const file = formData.get("avatar");
-  const errorsAvatarTab = [];
-  if (!file.name) {
-    errorsAvatarTab.push("Avatar is required.");
+  if (formData.get("avatar")) {
+    const file = formData.get("avatar");
+    const errorsAvatarTab = [];
+    if (!file.name) {
+      errorsAvatarTab.push("Avatar is required.");
+    }
+    if (file.name && !file.type.match(/image\/(png|jpg|jpeg|gif)$/)) {
+      errorsAvatarTab.push(
+        "Avatar must be an image file (png, jpg, jpeg, gif)."
+      );
+      console.log(errors.avatar);
+    }
+    const maxSize = 2 * 1024 * 1024; // 2MB
+    if (file && file.size > maxSize) {
+      errorsAvatarTab.push(`Avatar must be less than ${maxSize} bytes.`);
+    }
+    if (errorsAvatarTab.length > 0) {
+      errors.avatar = errorsAvatarTab.join(" ");
+      console.log(errors.avatar);
+    }
   }
-  if (file.name && !file.type.match(/image\/(png|jpg|jpeg|gif)$/)) {
-    errorsAvatarTab.push("Avatar must be an image file (png, jpg, jpeg, gif).");
-    console.log(errors.avatar);
-  }
-  const maxSize = 2 * 1024 * 1024; // 2MB
-  if (file && file.size > maxSize) {
-    errorsAvatarTab.push(`Avatar must be less than ${maxSize} bytes.`);
-  }
-  if (errorsAvatarTab.length > 0) {
-    errors.avatar = errorsAvatarTab.join(" ");
-    console.log(errors.avatar);
-  }
-
   return {
     valid: Object.keys(errors).length === 0,
     errors: errors,
-    
   };
 }

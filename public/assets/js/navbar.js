@@ -1,3 +1,5 @@
+import { AuthManager } from "../../services/AuthManager.js";
+
 document.addEventListener("DOMContentLoaded", () => {
   const toggle = document.getElementById("menuToggle");
   const navLinks = document.getElementById("navLinks");
@@ -15,4 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
       navLinks.classList.remove("open");
     });
   });
+
+  AuthManager.updateNavbar();
 });
