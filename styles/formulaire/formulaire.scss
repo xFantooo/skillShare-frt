@@ -116,6 +116,32 @@ label {
   color: #555;
 }
 
+/* Register link styling */
+.register-link {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #666;
+}
+
+.register-link a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.register-link a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+  text-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+}
+
+.register-link a:focus {
+  outline: 2px solid rgba(0, 123, 255, 0.5);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
 input[type="text"],
 input[type="email"],
 input[type="password"] {

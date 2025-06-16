@@ -1,20 +1,35 @@
-<head>
-  <link
-    rel="stylesheet"
-    href="<%= process.env.SITE_URL %>/assets/styles/formulaire/formulaire.css"
+<form id="login-form" method="POST" action="" enctype="multipart/form-data">
+  <input
+    type="hidden"
+    id="api-url"
+    value="<%= typeof API_URL !== 'undefined' ? API_URL : '' %>"
   />
-</head>
 
-<form method="POST" action="" enctype="multipart/form-data">
   <div class="form-group">
-    <label for="username">Nom d'utilisateur</label>
-    <input type="text" class="form-control" id="username" name="username" />
+    <label for="email">Adresse email</label>
+    <span class="error" data-error="email"></span>
+    <input
+      type="text"
+      class="form-control"
+      id="email"
+      name="email"
+      autocomplete="current-email"
+    />
   </div>
 
   <div class="form-group">
-    <label for="password">Mot de passe</label>
+    <label for="password">Mot de passe </label>
+
     <input type="password" class="form-control" id="password" name="password" />
+    <span class="error" data-error="password"></span>
+  </div>
+  <div class="message-container" style="display: none">
+    <div id="verify-msg"></div>
   </div>
 
   <button type="submit" class="btn btn-primary mt-3">Connexion</button>
+
+  <p class="register-link">
+    Don't have an account yet? <a href="/register">Sign Up Here !</a>
+  </p>
 </form>

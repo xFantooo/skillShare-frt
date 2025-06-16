@@ -35,6 +35,11 @@
       type="module"
       src="<%= process.env.SITE_URL %>/assets/js/register.js"
     ></script>
+    <% }%> <% if (title === 'Login') { %>
+    <script
+      type="module"
+      src="<%= process.env.SITE_URL %>/assets/js/login.js"
+    ></script>
     <% }%> <% if (title === 'VerifyEmail') { %>
     <script
       type="module"
