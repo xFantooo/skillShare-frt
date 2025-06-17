@@ -1,5 +1,9 @@
 import express from "express";
+import { requireAdmin } from "../middleware/authMiddleware.js";
+import cookieParser from "cookie-parser";
+
 const router = express.Router();
+router.use(cookieParser());
 
 const globals = {
   API_URL: process.env.API_URL || "http://localhost:8000",
@@ -27,6 +31,14 @@ router.get("/skills", (req, res) => {
 });
 router.get("/profil", (req, res) => {
   res.render("layout", { title: "Profil", view: "pages/profil", ...globals });
+});
+
+router.get("/dashboard", requireAdmin, (req, res) => {
+  res.render("layout", {
+    title: "Dashboard",
+    view: "pages/dashboard",
+    ...globals,
+  });
 });
 router.get("/verify-email", (req, res) => {
   res.render("layout", {
