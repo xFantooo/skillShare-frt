@@ -23,7 +23,10 @@ router.get("/login", (req, res) => {
 });
 
 router.get("/skills", (req, res) => {
-  res.render("layout", { title: "Skills", view: "pages/skills" });
+  res.render("layout", { title: "Skills", view: "pages/skills", ...globals });
+});
+router.get("/profil", (req, res) => {
+  res.render("layout", { title: "Profil", view: "pages/profil", ...globals });
 });
 router.get("/verify-email", (req, res) => {
   res.render("layout", {

@@ -5,7 +5,7 @@ import { validateRegisterForm } from "../../services/validate.js";
 document.addEventListener("DOMContentLoaded", () => {
   // rediriger si déja connecter
   if (AuthManager.isLoggedIn()) {
-    window.location.href = "/";
+    // window.location.href = "/";
     return;
   }
   const loginForm = document.querySelector("#login-form");
@@ -68,7 +68,9 @@ document.addEventListener("DOMContentLoaded", () => {
         AuthManager.updateNavbar();
 
         setTimeout(() => {
-          window.location.href = "/";
+          const params = new URLSearchParams(window.location.search);
+          const redirect = params.get("redirect") || "/";
+          window.location.href = redirect;
         }, 2000);
       }
     } catch (error) {
