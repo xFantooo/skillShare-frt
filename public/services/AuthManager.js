@@ -1,11 +1,15 @@
 export class AuthManager {
   static isLoggedIn() {
-    // return !!localStorage.getItem("JWTtoken");
+    // return !!localStorage.getItem('JWTtoken');
     const token = localStorage.getItem("JWTtoken");
-    if (!token || this.isTokenExpired()) {
+    const notAllowedPaths = ["%2Fskills"];
+
+    if (!token) {
       const currentPath = encodeURIComponent(window.location.pathname);
       this.logout();
-      window.location.href = `/login?redirect=${currentPath}`;
+      if (notAllowedPaths.includes(currentPath)) {
+        window.location.href = `/login?redirect=${currentPath}`;
+      }
       return false;
     }
     return true;

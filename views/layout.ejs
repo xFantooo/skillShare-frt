@@ -12,6 +12,11 @@
       rel="stylesheet"
       href="<%= process.env.SITE_URL %>/assets/styles/formulaire/formulaire.css"
     />
+    <% }%> <% if (title === 'Profil') { %>
+    <link
+      rel="stylesheet"
+      href="<%= process.env.SITE_URL %>/assets/styles/profil/profil.css"
+    />
     <% }%> <% if (title === 'VerifyEmail') { %>
     <link
       rel="stylesheet"
@@ -44,6 +49,11 @@
     <script
       type="module"
       src="<%= process.env.SITE_URL %>/assets/js/verifyEmail.js"
+    ></script>
+    <% }%> <% if (title === 'Profil') { %>
+    <script
+      type="module"
+      src="<%= process.env.SITE_URL %>/assets/js/profil.js"
     ></script>
     <% }%>
   </body>
