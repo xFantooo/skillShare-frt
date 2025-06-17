@@ -5,22 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
       href="<%= process.env.SITE_URL %>/assets/styles/style.css"
     />
     <% if (title === 'Register' || 'Login') { %>
     <link
       rel="stylesheet"
       href="<%= process.env.SITE_URL %>/assets/styles/formulaire/formulaire.css"
-    />
-    <% }%> <% if (title === 'Profil') { %>
-    <link
-      rel="stylesheet"
-      href="<%= process.env.SITE_URL %>/assets/styles/profil/profil.css"
-    />
-    <% }%> <% if (title === 'VerifyEmail') { %>
-    <link
-      rel="stylesheet"
-      href="<%= process.env.SITE_URL %>/assets/styles/verifyEmail/verify-email.css"
     />
     <% }%>
     <link rel="stylesheet" href="" />
@@ -40,20 +34,10 @@
       type="module"
       src="<%= process.env.SITE_URL %>/assets/js/register.js"
     ></script>
-    <% }%> <% if (title === 'Login') { %>
+    <% }%> <% if (title === 'Skills Marketplace') { %>
     <script
       type="module"
-      src="<%= process.env.SITE_URL %>/assets/js/login.js"
-    ></script>
-    <% }%> <% if (title === 'VerifyEmail') { %>
-    <script
-      type="module"
-      src="<%= process.env.SITE_URL %>/assets/js/verifyEmail.js"
-    ></script>
-    <% }%> <% if (title === 'Profil') { %>
-    <script
-      type="module"
-      src="<%= process.env.SITE_URL %>/assets/js/profil.js"
+      src="<%= process.env.SITE_URL %>/assets/js/skills.js"
     ></script>
     <% }%>
   </body>
