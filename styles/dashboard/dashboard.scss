@@ -4,79 +4,91 @@ body {
   background-color: #f4f6f9;
   color: #333;
 }
-// header {
-//   height: 90px;
-// }
+
 .admin-dashboard {
   display: grid;
   grid-template-columns: 220px 1fr;
   height: 100vh;
+}
 
-  .sidebar {
-    background-color: #1e1e2f;
-    color: white;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
+.admin-dashboard .sidebar {
+  background-color: #1e1e2f;
+  color: white;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
 
-    h2 {
-      margin-bottom: 2rem;
-    }
+.admin-dashboard .sidebar h2 {
+  margin-bottom: 2rem;
+}
 
-    a {
-      color: #bbb;
-      text-decoration: none;
-      margin-bottom: 1rem;
-      transition: 0.2s;
+.admin-dashboard .sidebar a {
+  color: #bbb;
+  text-decoration: none;
+  margin-bottom: 1rem;
+  transition: 0.2s;
+}
 
-      &:hover {
-        color: #fff;
-      }
-    }
-  }
+.admin-dashboard .sidebar a:hover {
+  color: #fff;
+}
 
-  .content {
-    padding: 2rem;
+.admin-dashboard .content {
+  padding: 2rem;
+}
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 2rem;
+.admin-dashboard .content header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
 
-      h1 {
-        font-size: 2rem;
-      }
+.admin-dashboard .content header h1 {
+  font-size: 2rem;
+}
 
-      .logout-btn {
-        background: #ff4c4c;
-        color: white;
-        border: none;
-        padding: 0.5rem 1rem;
-        border-radius: 4px;
-        cursor: pointer;
-      }
-    }
+.admin-dashboard .content header .logout-btn {
+  background: #ff4c4c;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
 
-    .widgets {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
+.admin-dashboard .content header .logout-btn:hover {
+  background: #ff3333;
+}
 
-      .widget {
-        background-color: white;
-        padding: 1rem;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+.admin-dashboard .content .widgets {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
 
-        h3 {
-          margin: 0;
-        }
+.admin-dashboard .content .widgets .widget {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e0e0e0;
+  transition: box-shadow 0.2s;
+}
 
-        p {
-          margin: 0.5rem 0 0;
-        }
-      }
-    }
-  }
+.admin-dashboard .content .widgets .widget:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.admin-dashboard .content .widgets .widget h3 {
+  margin: 0;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.admin-dashboard .content .widgets .widget p {
+  margin: 0.5rem 0 0;
+  color: #666;
 }

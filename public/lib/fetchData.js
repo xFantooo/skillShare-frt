@@ -7,11 +7,11 @@ export async function fetchData({ route, api, options = {} }) {
     ...options.headers,
   };
 
-  // // Ajouter le token JWT si présent
-  // const token = localStorage.getItem("token");
-  // if (token) {
-  //   headers["Authorization"] = `Bearer ${token}`;
-  // }
+  // Ajouter le token JWT si présent
+  const token = localStorage.getItem("token");
+  if (token) {
+    headers["Authorization"] = `Bearer ${token}`;
+  }
 
   // Si ce n'est pas un FormData, ajouter Content-Type: application/json
   if (!(options.body instanceof FormData)) {

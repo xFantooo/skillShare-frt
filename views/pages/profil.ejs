@@ -1,0 +1,30 @@
+<!-- infos personnels  -->
+<form id="info-Form" action="">
+  <input
+    type="hidden"
+    id="api-url"
+    value="<%= typeof API_URL !== 'undefined' ? API_URL : '' %>"
+  />
+
+  <div class="access-messages" style="display: none">
+    <div id="access-msg"></div>
+  </div>
+
+  <div class="form-group">
+    <label for="username">Username</label>
+    <span class="error" data-error="username"></span>
+    <input
+      type="text"
+      class="form-control"
+      id="username"
+      name="username"
+      autocomplete="given-name"
+    />
+  </div>
+
+  <div class="message-container" style="display: none">
+    <div id="verify-msg"></div>
+  </div>
+
+  <button type="submit" class="btn-btn-primary-mt-3">Update</button>
+</form>
