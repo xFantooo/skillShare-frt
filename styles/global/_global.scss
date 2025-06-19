@@ -21,10 +21,12 @@ h1 {
 
 .message-container,
 .acces-messages {
-  background-color: #fff;
   padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  background: rgba(26, 26, 26, 0.8);
+  backdrop-filter: blur(20px);
+  border: 1px solid hsla(0, 0%, 100%, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4), 0 0 0 1px hsla(0, 0%, 100%, 0.05);
   text-align: center;
   width: 100%;
   max-width: 400px;
