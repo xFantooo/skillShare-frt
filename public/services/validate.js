@@ -2,14 +2,15 @@ export function validateRegisterForm(form) {
   const formData = new FormData(form);
   const errors = {};
   //   console.log(formData.get("email"));
-  if (formData.get("username") !== null && !formData.get("username").trim())
+  if (formData.get("username") !== null && !formData.get("username")?.trim())
     errors.username = "Username is required.";
   // console.log(errors.username);
   const emailRegex = new RegExp(
     "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"
   );
-  const email = formData.get("email").trim();
-  if (!emailRegex.test(email)) {
+  const email = formData.get("email")?.trim();
+
+  if (formData.get("email") !== null && !emailRegex.test(email)) {
     errors.email = "Email is invalid.";
     console.log(errors.email);
   }
@@ -17,8 +18,8 @@ export function validateRegisterForm(form) {
   const passwordRegex = new RegExp(
     "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{12,}$"
   );
-  const password = formData.get("password").trim();
-  if (!passwordRegex.test(password)) {
+  const password = formData.get("password")?.trim();
+  if (formData.get("password") !== null && !passwordRegex.test(password)) {
     errors.password =
       "Password must be at least 12 characters long, contain at least one uppercase letter, one lowercase letter, one number, and one special character.";
     console.log(errors.password);

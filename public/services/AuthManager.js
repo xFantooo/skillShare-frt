@@ -111,6 +111,5 @@ export class AuthManager {
   static logout() {
     localStorage.removeItem("JWTtoken");
     localStorage.removeItem("user");
-    // window.location.href = "/";
   }
 }

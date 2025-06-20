@@ -1,4 +1,23 @@
 <!-- infos personnels  -->
+<div class="profile-card avatar-section">
+  <div class="avatar-container">
+    <img id="user-avatar" src="" alt="Avatar" class="avatar" />
+  </div>
+  
+  <!-- Preview section for the new avatar -->
+  <div class="file-preview" id="avatar-preview-container" style="display: none;">
+    <img id="avatar-preview" src="" alt="Avatar Preview" class="avatar-preview" />
+    <div class="file-info" id="avatar-file-info">Preview of new avatar</div>
+  </div>
+  
+  <form id="avatar-form">
+    <div class="file-input-wrapper">
+      <input type="file" name="avatar" id="avatar-input" accept="image/*" />
+      <button type="submit" class="btn btn-primary">Update Avatar</button>
+    </div>
+    <div id="avatar-msg" class="message"></div>
+  </form>
+</div>
 <form id="info-Form" action="">
   <input
     type="hidden"
@@ -20,6 +39,18 @@
       name="username"
       autocomplete="given-name"
     />
+  </div>
+
+  <div class="form-group">
+    <label for="email">Adresse email</label>
+    <input
+      type="text"
+      class="form-control"
+      id="email"
+      name="email"
+      autocomplete="current-email"
+    />
+    <span class="error" data-error="email"></span>
   </div>
 
   <div class="message-container" style="display: none">
